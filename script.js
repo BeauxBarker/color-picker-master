@@ -6,8 +6,8 @@ let hexValue = "";
 // Create a Pickr instance
 const pickr = Pickr.create({
   el: '#color-picker',
-  theme: 'nano',
-  default: '#000000',
+  theme: 'classic',
+  default: '#124DE0',
   components: {
     preview: true,
     opacity: true,
