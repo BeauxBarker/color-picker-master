@@ -5,6 +5,9 @@
     font-family: 'Inter', sans-serif;
 }
 
+body{
+    overflow-x: hidden;
+}
 
 input {
     outline: none;
@@ -18,20 +21,19 @@ input {
 nav{
     display: flex;
     font-family: 'Russo One', sans-serif;
-    height: 64px;
     width: 100%;
     background-color: blue;
     color: white;
     font-size: 1.8em;
     font-weight: 500;
     align-items: center;
-    padding: 0 20px;
+    padding: 30px 30px;
 }  
 
 main{
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
 }
