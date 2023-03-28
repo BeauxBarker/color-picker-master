@@ -56,7 +56,10 @@ document.getElementById('btn').addEventListener('click', function(){
     container.innerHTML = '';
     for (let i = 0; i < colorsArray.length; i++) {
       container.innerHTML += `
-        <div class="one" style="background-color:${colorsArray[i]}">${colorsArray[i]}</div>
+        <div class="one" style="background-color:${colorsArray[i]}">
+        <div class="hex-container">${colorsArray[i]}</div>
+        </div>
+        
       `;
     }
   })

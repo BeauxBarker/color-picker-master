@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -15,9 +16,16 @@ input {
   }
 
 nav{
+    display: flex;
+    font-family: 'Russo One', sans-serif;
     height: 64px;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: blue;
+    color: white;
+    font-size: 1.8em;
+    font-weight: 500;
+    align-items: center;
+    padding: 0 20px;
 }  
 
 main{
@@ -30,9 +38,8 @@ main{
 .container{
     width: 100%;
     height: 70vh;
-    background-color: lightgray;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 8px 12px 8px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000, 5px 8px 12px 8px rgba(0,0,0,0);
+    background-color: rgb(252, 252, 252);
+   
 }
 
 .color-selector{
@@ -41,7 +48,7 @@ main{
     justify-content: space-evenly;
     background-color: whitesmoke;
     padding: 20px 8px;
-    filter: drop-shadow(1px 23px 26px rgba(0, 0, 0, 0.30));
+    border: 1px solid lightgray;
    
 }
 
@@ -69,7 +76,7 @@ select {
     background-size: 14px;
     padding: 0 16px;
     border-radius: 5px;
-    border: 1px solid lightgray;
+    
   }
 
   
@@ -96,25 +103,72 @@ select {
       background-color: rgb(255, 255, 255);
       cursor: pointer;
   }
+  .wide-btn{
+    width: 80%;
+    background-color: transparent;
+    border: 2px solid blue;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.4s ease .2s;
+  }
+
+  .wide-btn:hover{
+    background-color: blue;
+    color: white;
+    transition: all 0.3s ease 0s;
+  }
+ 
   
   .colors{
       display:flex;
       justify-content: space-evenly;
       height: 100%;
+      
   }
 
   .one{
       flex: 1;
+      display: flex;
+      flex-direction: column-reverse;
+      text-align: center;
       width: 100%;
       height: 100%;
   }
  
+.hex-container{
+    background-color: whitesmoke;
+    filter: drop-shadow(0 -23px 26px rgba(0, 0, 0, 0.30));
+    padding: 20px;
+}
 
-.hex-codes{
-display: flex;
-justify-content: space-around;
-padding: 16px 0;
-text-align: center;
-background-color: whitesmoke;
-filter: drop-shadow(0 -23px 26px rgba(0, 0, 0, 0.30));
+.hero-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+
+}
+.hero-text-wrapper{
+    max-width: 500px;
+    text-align: center;
+}
+.hero-text{
+    font-size: 4em;
+    font-weight: 900;
+    line-height: 1.1em;
+    letter-spacing: -0.045em;
+    padding-bottom: 30px;
+}
+.sm-hero-text{
+    color: #464853;
+    line-height: 1.4em;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+    max-width: 400px;
+}
+footer{
+    border-top: 1px solid lightgray;
 }
