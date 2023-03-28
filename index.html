@@ -15,16 +15,21 @@
 
 <body>
     <nav>
-        <div>Cooler Colors</div> 
+        <div id="logo-wrapper">
+            <img class="logo" id="logo" src="palletpal.png"> 
+        </div>
+        
     </nav>
     <main>
         <div class="container">
            
 
             <div id="color-selector" class="color-selector">
-
-                <div id="color-picker"></div>
-                
+                    <div id="color-picker-btn" class="color-picker-wrapper">
+                        Pick Color
+                        <div id="color-picker"></div>
+                    </div>
+     
                 <div class="color-img">
                     <input type="text" id="hexInput" placeholder="#HEX">
                 </div>
@@ -53,7 +58,7 @@
                         <div class="sm-hero-text">Simple palletes created by your color selection. Choose from the color picker or use your own.</div>
                         <button class="wide-btn">Generate Random</button>
                     </div>
-                    
+
                     <img class="hero-gif" src="colors.gif" alt="Example GIF" height="500" width="auto">
                 </div>
 

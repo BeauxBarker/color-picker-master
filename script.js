@@ -1,27 +1,37 @@
 const mySelect = document.getElementById("mySelect");
-let num = document.getElementById("numHex").textContent;
+const { textContent: num } = document.getElementById("numHex");
 const hexInput = document.getElementById("hexInput");
+const btn = document.getElementById("btn")
+const logoWrapper = document.getElementById('logo-wrapper');
+const pickr = createPickr();
 let hexValue = "";
 
-// Create a Pickr instance
-const pickr = Pickr.create({
-  el: '#color-picker',
-  theme: 'classic',
-  default: '#124DE0',
-  components: {
-    preview: true,
-    opacity: true,
-    hue: true,
+
+function createPickr() {
+  return Pickr.create({
+    el: '#color-picker',
+    theme: 'classic',
+    default: '#124DE0',
+    components: {
+      preview: true,
+      opacity: true,
+      hue: true
+    },
     interaction: {
       hex: true,
       input: true,
       clear: true,
       save: true
     }
-  }
-});
+  });
+}
 
 
+
+
+document.getElementById('color-picker-btn').addEventListener('click', function(){
+  pickr.show();
+})
 
 hexInput.addEventListener("input", function() {
   hexValue = this.value;
@@ -35,19 +45,43 @@ pickr.on('change', (color) => {
   hexInput.value = hexValue;
 });
 
-document.getElementById('btn').addEventListener('click', function(){
-  let num = document.getElementById("numHex").value;
-  let selectedOption = mySelect.options[mySelect.selectedIndex].value;
-  
-  if (hexValue.includes("#")){
-    hexValue = hexValue.slice(1)
+
+function selectRandomOption(selectElement) {
+  const randomIndex = Math.floor(Math.random() * selectElement.options.length);
+  selectElement.selectedIndex = randomIndex;
+}
+
+function generateRandomHexColor(numDigits = 6) {
+  return Math.floor(Math.random() * 16 ** numDigits).toString(16).padStart(numDigits, '0');
+}
+
+
+document.querySelector('.wide-btn').addEventListener('click', function() {
+  const randomColor = generateRandomHexColor();
+  hexInput.value = randomColor;
+  hexValue = randomColor;
+  hexInput.style.backgroundColor = "#" + randomColor;
+  selectRandomOption(mySelect);
+  btn.click();
+});
+
+
+btn.addEventListener('click', function(){
+  const num = document.getElementById("numHex").value;
+  const selectedOption = mySelect.options[mySelect.selectedIndex].value;
+  if (hexValue.includes("#")) {
+    hexValue = hexValue.slice(1);
   }
+
+
+logoWrapper.addEventListener('click', function() {
+  pickr.destroy();
+});
+
   
   fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${num}`)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
-    console.log(selectedOption)
     let colorsArray = [];
     for (let color of data.colors){
       colorsArray.push(color.hex.value);
