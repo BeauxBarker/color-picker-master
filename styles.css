@@ -59,15 +59,39 @@ main{
    
 }
 
-.color-img{
-    padding: 4px 12px;
-    background-color: rgb(243, 240, 240);
+.color-hex-wrapper{
+    padding: 4px 8px;
+    background-color: rgb(255, 255, 255);
     border: 1px solid lightgray;
     border-radius: 5px;
-
 }
-#hex-input{
-    width: 100%
+
+
+#hexInput{
+    width: 100%;
+    color: white;
+    border-radius: 5px;    
+}
+
+.color-num-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 8px 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    font-size: .8em;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.numHex{
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+   
+
 }
 
 .color-scheme{
@@ -110,12 +134,12 @@ select {
     display: flex;
     position: relative;
     flex-wrap: nowrap;
-    padding: 8px 8px 8px 12px;
+    padding: 8px 10px 8px 12px;
     border-radius: 5px;
     border: 1px solid lightgray;
     font-size: .8em;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
     cursor: pointer;
     z-index: 0;
 
@@ -247,6 +271,15 @@ select {
     margin-bottom: 35px;
     max-width: 400px;
 }
+
+
+.hex-container{
+    font-size: 1.8em;
+    padding-bottom: 26px;
+}
+
+
+
 footer{
     border-top: 1px solid lightgray;
 }

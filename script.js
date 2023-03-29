@@ -40,8 +40,9 @@ hexInput.addEventListener("input", function() {
 
 // Listen for changes in the color picker and update the hex input field
 pickr.on('change', (color) => {
-  hexValue = color.toHEXA().toString(); // Update hexValue with the new color
-  hexInput.style.backgroundColor = hexValue; // Update the background color of the input element
+  hexValue = color.toHEXA().toString(); 
+  hexInput.style.backgroundColor = hexValue;
+  hexInput.style.textShadow = "2px 2px 2px #000000";
   hexInput.value = hexValue;
 });
 
