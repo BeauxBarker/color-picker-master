@@ -3,8 +3,11 @@ const { textContent: num } = document.getElementById("numHex");
 const hexInput = document.getElementById("hexInput");
 const btn = document.getElementById("btn")
 const logoWrapper = document.getElementById('logo-wrapper');
+const menuToggle = document.querySelector('.menu-toggle')
+const menuItems = document.querySelector('.menu-items')
 const pickr = createPickr();
 let hexValue = "";
+
 
 
 function createPickr() {

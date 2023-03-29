@@ -23,23 +23,28 @@
     <main>
         <div class="container">
            
-
-            <div id="color-selector" class="color-selector">
-                    <div id="color-picker-btn" class="color-picker-wrapper">
-                        Pick Color
-                        <div id="color-picker"></div>
+            <div class="menu" id="menu">
+              <!---
+              <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            -->
+              <div class="menu-items">
+                    <div class="menu-item color-picker-wrapper" id="color-picker-btn">
+                      Pick Color
+                      <div class="menu-item color-picker" id="color-picker"></div>
                     </div>
-     
-                <div class="color-hex-wrapper">
-                    <input type="text" id="hexInput" placeholder="#HEX">
-                </div>
-                <div class="color-num-wrapper">
-                    How Many?
-                    <input class="numHex" type="text" id="numHex">
-                </div>
-
-                <div class="color-type">
-                    <select id="mySelect" class="color-scheme">
+                    <div class="menu-item color-hex-wrapper">
+                      <input type="text" id="hexInput" placeholder="#HEX">
+                    </div>
+                    <div class="menu-item color-num-wrapper">
+                      How Many?
+                      <input type="text" id="numHex" class="numHex">
+                    </div>
+                    <div class="menu-item color-type">
+                      <select class="color-scheme" id="mySelect">
                         <option value="">Select a scheme</option>
                         <option value="monochrome">Monochrome</option>
                         <option value="monochrome-dark">Monochrome-dark</option>
@@ -48,10 +53,14 @@
                         <option value="complement">Complement</option>
                         <option value="analogic-complement">Analogic-complement</option>
                         <option value="triad">Triad</option>
-                    </select>                      
-                </div>
-                <button id="btn">Get color scheme</button>
+                      </select>
+                    </div>
+                    <button class="menu-item" id="btn">Get color scheme</button>
+              </div>
+              
             </div>
+
+
             <div id="colors" class="colors">
                 <div class="hero-container">
                     <div class="hero-text-wrapper">
@@ -72,5 +81,3 @@
 </body>
 </html>
 
-
--->
