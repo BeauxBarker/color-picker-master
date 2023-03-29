@@ -42,7 +42,7 @@ hexInput.addEventListener("input", function() {
 pickr.on('change', (color) => {
   hexValue = color.toHEXA().toString(); 
   hexInput.style.backgroundColor = hexValue;
-  hexInput.style.textShadow = "2px 2px 2px #000000";
+  hexInput.style.textShadow = "1px 1px 1px #000000";
   hexInput.value = hexValue;
 });
 
@@ -79,8 +79,10 @@ logoWrapper.addEventListener('click', function() {
   pickr.destroy();
 });
 
-  
-  fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${num}`)
+
+
+
+fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${num}`)
   .then((response) => response.json())
   .then((data) => {
     let colorsArray = [];
@@ -91,13 +93,29 @@ logoWrapper.addEventListener('click', function() {
     container.innerHTML = '';
     for (let i = 0; i < colorsArray.length; i++) {
       container.innerHTML += `
-        <div class="one" style="background-color:${colorsArray[i]}">
+        <div class="one" id="single-hex" style="background-color:${colorsArray[i]}">
         <div class="hex-container">${colorsArray[i]}</div>
         </div>
         
       `;
     }
-  })
+
+  const colorElements = document.querySelectorAll('.one');
+  colorElements.forEach(colorElement => {
+    const hexValue = colorElement.querySelector('.hex-container').textContent;
+    colorElement.addEventListener('click', () => {
+      navigator.clipboard.writeText(hexValue)
+        .then(() => {
+          alert(`Copied ${hexValue} to the clipboard!`);
+        })
+        .catch((error) => {
+          console.error('Could not copy text: ', error);
+        });
+  });
+});
+ 
+  });
+
 });
 
 
