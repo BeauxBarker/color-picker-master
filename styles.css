@@ -34,6 +34,11 @@ nav{
 .logo{
     width: 140px;
     height: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.fade-in {
+    opacity: 1;
 }
 
 main{
@@ -90,10 +95,23 @@ main{
     margin-bottom: 16px;
 }
 
-.one:hover .copy {
+.one-color{
+    position: relative;  
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.one-color:hover .copy {
     display: block;
     cursor: pointer;
   }
+
+
+
 
 
 .color-num-wrapper{
@@ -127,7 +145,7 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: url('arrow.png');
+    background-image: url('images/arrow.png');
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 14px;
@@ -146,7 +164,7 @@ select {
     width: 20px;
     height: 20px;
     margin-top: -10px;
-    background-image: url('arrow.png');
+    background-image: url('images/arrow.png');
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 14px;
@@ -235,7 +253,7 @@ select {
   }
 
 
-  .wide-btn{
+  .random-btn{
     width: 80%;
     background-color: transparent;
     border: 2px solid blue;
@@ -246,7 +264,7 @@ select {
     margin-bottom: 16px;
   }
 
-  .wide-btn:hover{
+  .random-btn:hover{
     background-color: blue;
     color: white;
     transition: all 0.3s ease 0s;
@@ -260,14 +278,6 @@ select {
       
   }
 
-  .one{
-      flex: 1;
-      display: flex;
-      flex-direction: column-reverse;
-      text-align: center;
-      width: 100%;
-      height: 100%;
-  }
  
 
 .hero-container{
@@ -316,22 +326,19 @@ select {
     font-size: 1.8em;
     padding-bottom: 26px;
 }
-
-#toast{
-   position: relative;
-
+      
+.toast-notice {
+        position: absolute;
+        bottom: 200px;
+        background-color: #333;
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        z-index: 3;
 }
-.toast-notice{
-    display: block;
-    position: absolute;
-    color: white;
-    padding: 10px 20px;
-    background-color: rgb(17, 17, 17);
-    border-radius: 30px;
-    bottom: 200px;
-    left: 45%;
   
-}
 
 footer {
     position: fixed;
