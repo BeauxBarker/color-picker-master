@@ -3,11 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    overflow: hidden;
+
 }
 
-body{
-    overflow-x: hidden;
-}
 
 input {
     outline: none;
@@ -418,6 +417,7 @@ footer {
     }
     .hero-gif{
         width: 80%;
+        height: 80%;
         margin-right: 30px;
         display:block;
     }
