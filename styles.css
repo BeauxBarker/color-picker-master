@@ -75,6 +75,26 @@ main{
     color: #ffffff
 }
 
+.color-icon-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.copy{
+    display: none;
+    width: 25px;
+    margin-bottom: 16px;
+}
+
+.one:hover .copy {
+    display: block;
+    cursor: pointer;
+  }
+
 
 .color-num-wrapper{
     display: flex;

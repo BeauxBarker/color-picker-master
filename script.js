@@ -99,8 +99,8 @@ fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}
       container.innerHTML += `
       
         <div class="one" id="single-hex" style="background-color:${colorsArray[i]}">
-          <div>
-            <img style="width: 25px" src="copy.png">
+          <div class="color-icon-wrapper">
+            <img class="copy" src="copy.png">
             <div class="hex-container">${colorsArray[i]}</div>
           </div>
         </div>
