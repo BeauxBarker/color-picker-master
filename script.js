@@ -5,6 +5,7 @@ const btn = document.getElementById("btn")
 const logoWrapper = document.getElementById('logo-wrapper');
 const menuToggle = document.querySelector('.menu-toggle')
 const menuItems = document.querySelector('.menu-items')
+const toast = document.getElementById('toast')
 const pickr = createPickr();
 let hexValue = "";
 
@@ -96,8 +97,12 @@ fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}
     container.innerHTML = '';
     for (let i = 0; i < colorsArray.length; i++) {
       container.innerHTML += `
+      
         <div class="one" id="single-hex" style="background-color:${colorsArray[i]}">
-        <div class="hex-container">${colorsArray[i]}</div>
+          <div>
+            <img style="width: 25px" src="copy.png">
+            <div class="hex-container">${colorsArray[i]}</div>
+          </div>
         </div>
         
       `;
@@ -109,7 +114,9 @@ fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}
     colorElement.addEventListener('click', () => {
       navigator.clipboard.writeText(hexValue)
         .then(() => {
-          alert(`Copied ${hexValue} to the clipboard!`);
+          toast.innerHTML =
+          `<div class="toast">${hexValue} Copied to Clipboard!</div>`
+          console.log('clicked')
         })
         .catch((error) => {
           console.error('Could not copy text: ', error);
