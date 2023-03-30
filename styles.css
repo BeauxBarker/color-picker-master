@@ -3,10 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
-
+    
 }
 
+body{
+    overflow-x: hidden;
+}
 
 input {
     outline: none;
