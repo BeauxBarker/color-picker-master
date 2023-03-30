@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooler Colors</title>
+    <title>PalletePal</title>
     <link href="styles.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,23 +23,21 @@
     <main>
         <div class="container">
            
-
-            <div id="color-selector" class="color-selector">
-                    <div id="color-picker-btn" class="color-picker-wrapper">
-                        Pick Color
-                        <div id="color-picker"></div>
+            <div class="menu" id="menu">
+              <div class="menu-items">
+                    <div class="menu-item color-picker-wrapper" id="color-picker-btn">
+                      Pick Color
+                      <div class="menu-item color-picker" id="color-picker"></div>
                     </div>
-     
-                <div class="color-hex-wrapper">
-                    <input type="text" id="hexInput" placeholder="#HEX">
-                </div>
-                <div class="color-num-wrapper">
-                    How Many?
-                    <input class="numHex" type="text" id="numHex">
-                </div>
-
-                <div class="color-type">
-                    <select id="mySelect" class="color-scheme">
+                    <div class="menu-item color-hex-wrapper">
+                      <input type="text" id="hexInput" placeholder="#HEX">
+                    </div>
+                    <div class="menu-item color-num-wrapper">
+                      How Many?
+                      <input type="text" id="numHex" class="numHex">
+                    </div>
+                    <div class="menu-item color-type">
+                      <select class="color-scheme" id="mySelect">
                         <option value="">Select a scheme</option>
                         <option value="monochrome">Monochrome</option>
                         <option value="monochrome-dark">Monochrome-dark</option>
@@ -48,9 +46,11 @@
                         <option value="complement">Complement</option>
                         <option value="analogic-complement">Analogic-complement</option>
                         <option value="triad">Triad</option>
-                    </select>                      
-                </div>
-                <button id="btn">Get color scheme</button>
+                      </select>
+                    </div>
+                    <button class="menu-item" id="btn">Get color scheme</button>
+              </div>
+              
             </div>
             <div id="colors" class="colors">
                 <div class="hero-container">
@@ -59,20 +59,17 @@
                         <div class="sm-hero-text">Simple palletes created by your color selection. Choose from the color picker or use your own.</div>
                         <button class="wide-btn">Generate Random</button>
                     </div>
-
                     <img class="hero-gif" src="colors.gif" alt="Example GIF" height="500" width="auto">
                 </div>
-
+                <div id="toast"></div>
             </div>
         </div>
     </main>
     <footer>
-    
+      Site created by Beaux Barker
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
 
-
--->
