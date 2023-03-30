@@ -95,7 +95,7 @@ main{
     margin-bottom: 16px;
 }
 
-.one{
+.one-color{
     position: relative;  
     flex: 1;
     display: flex;
@@ -105,7 +105,7 @@ main{
     height: 100%;
 }
 
-.one:hover .copy {
+.one-color:hover .copy {
     display: block;
     cursor: pointer;
   }
@@ -253,7 +253,7 @@ select {
   }
 
 
-  .wide-btn{
+  .random-btn{
     width: 80%;
     background-color: transparent;
     border: 2px solid blue;
@@ -264,7 +264,7 @@ select {
     margin-bottom: 16px;
   }
 
-  .wide-btn:hover{
+  .random-btn:hover{
     background-color: blue;
     color: white;
     transition: all 0.3s ease 0s;

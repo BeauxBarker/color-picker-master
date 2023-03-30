@@ -1,23 +1,18 @@
-const mySelect = document.getElementById("mySelect");
-const { textContent: num } = document.getElementById("numHex");
-const hexInput = document.getElementById("hexInput");
-const btn = document.getElementById("btn")
-const logoWrapper = document.getElementById('logo-wrapper');
-const menuToggle = document.querySelector('.menu-toggle')
-const menuItems = document.querySelector('.menu-items')
-const toast = document.getElementById('toast')
-const singleHex = document.getElementById('single-hex')
-const pickr = createPickr();
-let hexValue = "";
+// Elements
+const elements = {
+  mySelect: document.getElementById('mySelect'),
+  num: document.getElementById('numHex').textContent,
+  hexInput: document.getElementById('hexInput'),
+  btn: document.getElementById('btn'),
+  logoWrapper: document.getElementById('logo-wrapper'),
+  menuToggle: document.querySelector('.menu-toggle'),
+  menuItems: document.querySelector('.menu-items'),
+  toast: document.getElementById('toast'),
+  singleHex: document.getElementById('single-hex'),
+  pickr: createPickr()
+};
 
-
-window.addEventListener('load', function() {
-  var logo = document.getElementById('logo');
-  logo.classList.add('fade-in');
-});
-
-
-
+// Functions
 function createPickr() {
   return Pickr.create({
     el: '#color-picker',
@@ -37,92 +32,76 @@ function createPickr() {
   });
 }
 
-
-
-
-document.getElementById('color-picker-btn').addEventListener('click', function(){
-  pickr.show();
-})
-
-hexInput.addEventListener("input", function() {
-  hexValue = this.value;
-  this.style.backgroundColor = "#" + hexValue;
-});
-
-// Listen for changes in the color picker and update the hex input field
-pickr.on('change', (color) => {
-  hexValue = color.toHEXA().toString(); 
-  hexInput.style.backgroundColor = hexValue;
-  hexInput.style.textShadow = "1px 1px 1px #000000";
-  hexInput.value = hexValue;
-});
-
-
 function selectRandomOption(selectElement) {
-  const randomIndex = Math.floor(Math.random() * selectElement.options.length);
-  selectElement.selectedIndex = randomIndex;
+  selectElement.selectedIndex = Math.floor(Math.random() * selectElement.options.length);
 }
 
 function generateRandomHexColor(numDigits = 6) {
   return Math.floor(Math.random() * 16 ** numDigits).toString(16).padStart(numDigits, '0');
 }
 
+// Event listeners
+window.addEventListener('load', () => {
+  document.getElementById('logo').classList.add('fade-in');
+});
 
-document.querySelector('.wide-btn').addEventListener('click', function() {
+document.getElementById('color-picker-btn').addEventListener('click', () => {
+  elements.pickr.show();
+});
+
+elements.hexInput.addEventListener('input', () => {
+  const hexValue = elements.hexInput.value;
+  elements.hexValue = hexValue;
+  elements.hexInput.style.backgroundColor = `#${hexValue}`;
+});
+
+elements.pickr.on('change', (color) => {
+  const hexValue = color.toHEXA().toString();
+  elements.hexValue = hexValue;
+  elements.hexInput.style.backgroundColor = hexValue;
+  elements.hexInput.style.textShadow = '1px 1px 1px #000000';
+  elements.hexInput.value = hexValue;
+});
+
+document.querySelector('.random-btn').addEventListener('click', () => {
   const randomColor = generateRandomHexColor();
-  hexInput.value = randomColor;
-  hexValue = randomColor;
-  hexInput.style.backgroundColor = "#" + randomColor;
-  selectRandomOption(mySelect);
-  btn.click();
+  elements.hexInput.value = randomColor;
+  elements.hexValue = randomColor;
+  elements.hexInput.style.backgroundColor = `#${randomColor}`;
+  selectRandomOption(elements.mySelect);
+  elements.btn.click();
 });
 
-
-btn.addEventListener('click', function(){
-  const num = document.getElementById("numHex").value;
-  const selectedOption = mySelect.options[mySelect.selectedIndex].value;
-  if (hexValue.includes("#")) {
-    hexValue = hexValue.slice(1);
-  }
-
-
-logoWrapper.addEventListener('click', function() {
-  pickr.destroy();
-});
+elements.btn.addEventListener('click', () => {
+  const hexValue = elements.hexValue.replace('#', '');
+  const selectedOption = elements.mySelect.options[elements.mySelect.selectedIndex].value;
 
 
 
+  fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${elements.num}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const colorsArray = data.colors.map(color => color.hex.value);
+      const container = document.getElementById('colors');
+      container.innerHTML = '';
 
-
-
-fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${num}`)
-  .then((response) => response.json())
-  .then((data) => {
-    let colorsArray = [];
-    for (let color of data.colors){
-      colorsArray.push(color.hex.value);
-    }
-    let container = document.getElementById('colors');
-    container.innerHTML = '';
-    for (let i = 0; i < colorsArray.length; i++) {
-      container.innerHTML += `
-      
-        <div class="one" id="single-hex" style="background-color:${colorsArray[i]}">
-          <div class="color-icon-wrapper">
-            <img class="copy" src="images/copy.png">
-            <div class="hex-container">${colorsArray[i]}</div>
+      colorsArray.forEach((color) => {
+        container.innerHTML += `
+          <div class="one-color" id="single-hex" style="background-color:${color}">
+            <div class="color-icon-wrapper">
+              <img class="copy" src="images/copy.png">
+              <div class="hex-container">${color}</div>
+            </div>
           </div>
-        </div>
-        
-      `;
-    }
+        `;
+      });
 
 
-    const colorElements = document.querySelectorAll('.one');
-    colorElements.forEach(colorElement => {
-      const hexValue = colorElement.querySelector('.hex-container').textContent;
-      colorElement.addEventListener('click', () => {
-        navigator.clipboard.writeText(hexValue)
+      const colorElements = document.querySelectorAll('.one-color');
+      colorElements.forEach((colorElement) => {
+        const hexValue = colorElement.querySelector('.hex-container').textContent;
+        colorElement.addEventListener('click', () => {
+          navigator.clipboard.writeText(hexValue)
           .then(() => {
             const toast = document.createElement('div');
             toast.classList.add('toast-notice');
