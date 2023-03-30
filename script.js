@@ -6,8 +6,15 @@ const logoWrapper = document.getElementById('logo-wrapper');
 const menuToggle = document.querySelector('.menu-toggle')
 const menuItems = document.querySelector('.menu-items')
 const toast = document.getElementById('toast')
+const singleHex = document.getElementById('single-hex')
 const pickr = createPickr();
 let hexValue = "";
+
+
+window.addEventListener('load', function() {
+  var logo = document.getElementById('logo');
+  logo.classList.add('fade-in');
+});
 
 
 
@@ -102,7 +109,7 @@ fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}
       
         <div class="one" id="single-hex" style="background-color:${colorsArray[i]}">
           <div class="color-icon-wrapper">
-            <img class="copy" src="copy.png">
+            <img class="copy" src="images/copy.png">
             <div class="hex-container">${colorsArray[i]}</div>
           </div>
         </div>
@@ -110,27 +117,30 @@ fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}
       `;
     }
 
-  const colorElements = document.querySelectorAll('.one');
-  colorElements.forEach(colorElement => {
-    const hexValue = colorElement.querySelector('.hex-container').textContent;
-    colorElement.addEventListener('click', () => {
-      navigator.clipboard.writeText(hexValue)
-     let singleHex = document.getElementById('single-hex')
-        singleHex.innerHTML +=
-          `<div class="toast-notice">Copied to Clipboard!</div>`
-     
-      console.log('clicked')
-       
- 
+
+    const colorElements = document.querySelectorAll('.one');
+    colorElements.forEach(colorElement => {
+      const hexValue = colorElement.querySelector('.hex-container').textContent;
+      colorElement.addEventListener('click', () => {
+        navigator.clipboard.writeText(hexValue)
+          .then(() => {
+            const toast = document.createElement('div');
+            toast.classList.add('toast-notice');
+            toast.innerHTML = `${hexValue} Copied to Clipboard!`;
+    
+            colorElement.parentElement.appendChild(toast);
+    
+            setTimeout(() => {
+              toast.remove();
+            }, 1000);
+          })
+          .catch((error) => {
+            console.error('Could not copy text: ', error);
+          });
+      });
+    });
   });
 });
-
-  });
-
-});
-
-
-
 
 
 
