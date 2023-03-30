@@ -321,14 +321,16 @@ select {
    position: relative;
 
 }
-.toast{
+.toast-notice{
+    display: block;
     position: absolute;
     color: white;
     padding: 10px 20px;
     background-color: rgb(17, 17, 17);
     border-radius: 30px;
-    top: 0;
-    left: 50%;
+    bottom: 200px;
+    left: 45%;
+  
 }
 
 footer {

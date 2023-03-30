@@ -86,6 +86,8 @@ logoWrapper.addEventListener('click', function() {
 
 
 
+
+
 fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${num}`)
   .then((response) => response.json())
   .then((data) => {
@@ -113,21 +115,19 @@ fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}
     const hexValue = colorElement.querySelector('.hex-container').textContent;
     colorElement.addEventListener('click', () => {
       navigator.clipboard.writeText(hexValue)
-        .then(() => {
-          toast.innerHTML =
-          `<div class="toast">${hexValue} Copied to Clipboard!</div>`
-          console.log('clicked')
-        })
-        .catch((error) => {
-          console.error('Could not copy text: ', error);
-        });
-  });
-});
+     let singleHex = document.getElementById('single-hex')
+        singleHex.innerHTML +=
+          `<div class="toast-notice">Copied to Clipboard!</div>`
+     
+      console.log('clicked')
+       
  
   });
-
 });
 
+  });
+
+});
 
 
 
