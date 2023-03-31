@@ -20,6 +20,19 @@ input {
     background-color: transparent
   }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+
 nav{
     display: flex;
     font-family: 'Russo One', sans-serif;
@@ -287,7 +300,7 @@ select {
     position: relative;
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
@@ -298,7 +311,7 @@ select {
     align-items: center;
     justify-content: center;
     max-width: 500px;
-    width: 50%;
+    width: 60%;
     height: 100%;
     text-align: center;
     gap: 20px;
@@ -328,7 +341,7 @@ select {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 50%; 
+    width: 40%; 
     height: 100%;
 
 }
@@ -378,7 +391,10 @@ footer {
         border: none;
     }
 
+    .hero-gif{
+        width: 300px;
 
+    }
 
 }
 @media(max-width:768px){

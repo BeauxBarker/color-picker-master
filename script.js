@@ -1,7 +1,6 @@
 // Elements
 const elements = {
   mySelect: document.getElementById('mySelect'),
-  num: document.getElementById('numHex').textContent,
   hexInput: document.getElementById('hexInput'),
   btn: document.getElementById('btn'),
   logoWrapper: document.getElementById('logo-wrapper'),
@@ -11,6 +10,8 @@ const elements = {
   singleHex: document.getElementById('single-hex'),
   pickr: createPickr()
 };
+
+
 
 // Functions
 function createPickr() {
@@ -75,8 +76,7 @@ document.querySelector('.random-btn').addEventListener('click', () => {
 elements.btn.addEventListener('click', () => {
   const hexValue = elements.hexValue.replace('#', '');
   const selectedOption = elements.mySelect.options[elements.mySelect.selectedIndex].value;
-
-
+  elements.num = document.getElementById('numHex').value;
 
   fetch(`https://www.thecolorapi.com/scheme?hex=${hexValue}&mode=${selectedOption}&count=${elements.num}`)
     .then((response) => response.json())
