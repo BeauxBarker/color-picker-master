@@ -14,64 +14,63 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 </head>
-
-<body>
+  <body>
+    <!-- HEADER-->
     <nav>
-        <div id="logo-wrapper">
-            <img class="logo" id="logo" src="images/palletpal.png"> 
-        </div>
-        
+      <div id="logo-wrapper">
+        <img class="logo" id="logo" src="images/palletpal.png"> 
+      </div>
     </nav>
-    <main>
-        <div class="container">
-           
-            <div class="menu" id="menu">
-              <div class="menu-items">
-                    <div class="menu-item color-picker-wrapper" id="color-picker-btn">
-                      Pick Color
-                      <div class="menu-item color-picker" id="color-picker"></div>
-                    </div>
-                    <div class="menu-item color-hex-wrapper">
-                      <input type="text" id="hexInput" placeholder="#HEX">
-                    </div>
-                    <div class="menu-item color-num-wrapper">
-                      How Many?
-                      <input type="text" id="numHex" class="numHex">
-                    </div>
-                    <div class="menu-item color-type">
-                      <select class="color-scheme" id="mySelect">
-                        <option value="">Select a scheme</option>
-                        <option value="monochrome">Monochrome</option>
-                        <option value="monochrome-dark">Monochrome-dark</option>
-                        <option value="monochrome-light">Monochrome-light</option>
-                        <option value="analogic">Analogic</option>
-                        <option value="complement">Complement</option>
-                        <option value="analogic-complement">Analogic-complement</option>
-                        <option value="triad">Triad</option>
-                      </select>
-                    </div>
-                    <button class="menu-item" id="btn">Get color scheme</button>
-              </div>
-              
-            </div>
-            <div id="colors" class="colors">
-                <div class="hero-container">
-                    <div class="hero-text-wrapper">
-                        <div class="hero-text">The even faster color pallettes generator!</div>
-                        <div class="sm-hero-text">Simple palletes created by your color selection. Choose from the color picker or use your own.</div>
-                        <button class="random-btn">Generate Random</button>
-                    </div>
-                    <img class="hero-gif" src="images/colors.gif" alt="Example GIF" height="500" width="auto">
-                </div>
-                  <div id="toast"></div>
-            </div>
+    <!-- MENU -->
+    <div class="menu-container">
+      <div class="menu-items">
+          <div class="menu-item color-picker-wrapper" id="color-picker-btn">
+            Pick Color
+          <div class="menu-item color-picker" id="color-picker"></div>
         </div>
+        <div class="menu-item color-hex-wrapper">
+          <input type="text" id="hexInput" placeholder="#HEX">
+        </div>
+        <div class="menu-item color-num-wrapper">
+          How Many?
+          <input type="text" id="numHex" class="numHex">
+        </div>
+        <div class="menu-item color-type">
+          <select class="color-scheme" id="mySelect">
+              <option value="">Select a scheme</option>
+              <option value="monochrome">Monochrome</option>
+              <option value="monochrome-dark">Monochrome-dark</option>
+              <option value="monochrome-light">Monochrome-light</option>
+              <option value="analogic">Analogic</option>
+              <option value="complement">Complement</option>
+              <option value="analogic-complement">Analogic-complement</option>
+              <option value="triad">Triad</option>
+          </select>
+        </div>
+        <button class="menu-item" id="btn">Get color scheme</button>
+      </div>
+    </div>
+  <!--- MAIN CONTENT-->
+    <main>  
+      <div id="colors" class="colors">
+        <div id="toast"></div>
+          <div class="hero-container">
+              <div class="hero-text-wrapper">
+                  <div class="hero-text">The even faster color pallettes generator!</div>
+                  <div class="sm-hero-text">Simple palletes created by your color selection. Choose from the color picker or use your own.</div>
+                  <button class="random-btn">Generate Random</button>
+              </div>
+              <div class="img-container">
+                <img class="hero-gif" src="images/colors.gif" alt="Example GIF">
+              </div>
+          </div> 
+      </div>
     </main>
     <footer>
       Site created by Beaux Barker
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
 

@@ -7,6 +7,7 @@
 }
 
 body{
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -47,13 +48,13 @@ main{
     justify-content: center;
     width: 100%;
     height: 100%;
+
 }
 
-.container{
-    width: 100%;
+.menu-container{
+    width: 100vw;
     height: 100%;
     display: block;
-    background-color: rgb(252, 252, 252);
    
 }
 
@@ -61,7 +62,6 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: whitesmoke;
     padding: 20px 8px;
     border: 1px solid lightgray;
     gap: 20px;
@@ -276,7 +276,7 @@ select {
       display:flex;
       justify-content: space-evenly;
       height: 75vh;
-      
+
   }
 
  
@@ -285,7 +285,7 @@ select {
     position: relative;
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
@@ -294,7 +294,10 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     max-width: 500px;
+    width: 50%;
+    height: 100%;
     text-align: center;
     gap: 20px;
     padding-bottom: 15px;
@@ -318,10 +321,20 @@ select {
     margin-bottom: 16px;
     max-width: 400px;
 }
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50%; 
+    height: 100%;
 
+}
 .hero-gif{
-    display: block;
-
+    position: absolute;
+    width: 70%;
+    height: 80%;
+    max-width: 500px;
 }
 .hex-container{
     font-size: 1.8em;
@@ -363,9 +376,6 @@ footer {
         border: none;
     }
 
-    .hero-text-wrapper{
-        margin: 30px;
-    }
 
 
 }
@@ -410,22 +420,26 @@ footer {
     }
 
     .colors{
-        display:block;
         flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%
     }
-
-    .one{
+    .hero-container{
+        width: auto;
+        gap: 10px;
+        padding-top: 50px;
+    }
+    .hero-text{
+        font-size: 1.8em;
+    }
+    .one-color{
         height: 30%;
     }
     .hero-gif{
-        width: 80%;
-        height: 80%;
-        margin-right: 30px;
-        display:block;
+        width: 300px;
+
     }
-    .hero-text-wrapper{
-      margin-right: 50px;
-    }
+
 }
 
 
