@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://palettepalgenerator.netlify.app/sitemap.xml
